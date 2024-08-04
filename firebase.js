@@ -19,7 +19,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const analytics = isSupported().then(yes => yes ? getAnalytics(app) : null);
 const firestore = getFirestore(app);
 
 export { firestore };
